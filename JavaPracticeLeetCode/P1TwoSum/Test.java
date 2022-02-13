@@ -1,7 +1,10 @@
 import java.util.*;
-class TSSolution{
+class Soliution{
     public int[] twoSum(int[] nums, int target){
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        //copy data set and past in HashTaple : map.put(nums[i],i);
+        //map.put(key,value)
         for(int i =0; i<nums.length; i++) map.put(nums[i],i);
         for(int i1=0; i1<nums.length; i1++){
             Integer i2=map.get(target-nums[i1]);
@@ -11,6 +14,25 @@ class TSSolution{
     }
 }
 
+/* Efficient Code in below
+import java.util.*;
+class Solution{
+    public int[] twoSum(int[] nums, int target){
+        HashMap<Integer, Integer>map=new HashMap<Integer, Integer>();
+        for(int i=0; i<nums.length; i++){
+            if(map.containsKey(target-nums[i])){
+                return new int[]{map.get(target-nums[i]),i};
+                
+            }
+            map.put(nums[i],i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+}
+*/
+
+
+//When you are in the Leetcode to submit, delete below
 public class Test{
     public static void main(String[] args){
         int[] nums={6,4,3,8,7,5,2};
@@ -19,3 +41,4 @@ public class Test{
         System.out.println(result[0]+", "+result[1]);
     }
 }
+
